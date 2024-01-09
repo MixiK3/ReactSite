@@ -6,12 +6,13 @@ const Artem = () => {
   const [page, setPage] = useState(1)
   const [universityData, setUniversityData] = useState([])
 
-  const fetchUniversityData = async () => {
+  const PAGE_LIMIT = 5
+  const fetchOffset = (page - 1) * PAGE_LIMIT
+
+  const fetchUniversityData = async (offset: any, limit: any) => {
     try {
       const response = await axios.get(
-        `http://universities.hipolabs.com/search?offset=${
-          (page - 1) * 5
-        }&limit=${10}`
+        `http://universities.hipolabs.com/search?offset=${offset}&limit=${limit}`
       )
       setUniversityData(response.data)
     } catch (error) {
@@ -20,7 +21,7 @@ const Artem = () => {
   }
 
   useEffect(() => {
-    fetchUniversityData()
+    fetchUniversityData(fetchOffset, PAGE_LIMIT)
   }, [page])
 
   const tableColumns = [
