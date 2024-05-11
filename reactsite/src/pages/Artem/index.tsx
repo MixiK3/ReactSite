@@ -1,65 +1,67 @@
-import React, { useEffect, useState } from 'react'
-import { Table, Button } from 'antd'
+import { FC, useEffect, useState } from 'react'
+import CardUniversity, { IUniversity } from '../../components/CardUniversity'
+import { useInView } from 'react-intersection-observer'
 import axios from 'axios'
+import styled from 'styled-components'
 
-const Artem = () => {
-  const [page, setPage] = useState(1)
-  const [universityData, setUniversityData] = useState([])
+const LIMIT_UNIVERSITIES = 10
 
-  const PAGE_LIMIT = 5
-  const fetchOffset = (page - 1) * PAGE_LIMIT
+const ListStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`
 
-  const fetchUniversityData = async (offset: any, limit: any) => {
-    try {
-      const response = await axios.get(
-        `http://universities.hipolabs.com/search?offset=${offset}&limit=${limit}`
-      )
-      setUniversityData(response.data)
-    } catch (error) {
-      console.error('Error fetching university data:', error)
-    }
-  }
+const BlockObserver = styled.div`
+  height: 40px;
+  background-color: black;
+`
+
+const DynamicPagination: FC = () => {
+  const [universities, setUniversities] = useState<Array<IUniversity>>([])
+  const [currentPage, setCurrentPage] = useState(1)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    fetchUniversityData(fetchOffset, PAGE_LIMIT)
-  }, [page])
+    fetchUniversities()
+  }, [currentPage])
 
-  const tableColumns = [
-    {
-      title: 'Страна',
-      dataIndex: 'country',
-      key: 'country',
-    },
-    {
-      title: 'Название школы',
-      dataIndex: 'name',
-      key: 'name',
-    },
-  ]
+  const { ref, inView } = useInView({
+    threshold: 1.0,
+  })
 
-  const handlePageChange = (nextPage: React.SetStateAction<number>) => {
-    setPage(nextPage)
+  useEffect(() => {
+    if (inView) {
+      setCurrentPage((prev) => prev + 1)
+    }
+  }, [inView])
+
+  const fetchUniversities = async () => {
+    try {
+      const offset = (currentPage - 1) * LIMIT_UNIVERSITIES
+      const response = await axios.get(
+        `http://universities.hipolabs.com/search?offset=${offset}&limit=${LIMIT_UNIVERSITIES}`
+      )
+      setUniversities((prev) => [...prev, ...response.data])
+    } catch (error) {
+      console.log('Error fetching univer...', error)
+    } finally {
+      setLoading(false)
+    }
   }
-
   return (
-    <>
-      <Table
-        dataSource={universityData}
-        columns={tableColumns}
-        pagination={false}
-      />
-      <div>
-        <Button
-          onClick={() => handlePageChange(page - 1)}
-          disabled={page === 1}
-        >
-          Назад
-        </Button>
-        <span>Страница: {page}</span>
-        <Button onClick={() => handlePageChange(page + 1)}>Вперед</Button>
-      </div>
-    </>
+    <ListStyled>
+      <h1>List Universities</h1>
+      {universities.map((university) => (
+        <CardUniversity
+          data={university}
+          key={university.name}
+        ></CardUniversity>
+      ))}
+      {loading && <div>Loading...</div>}
+      {!loading && <BlockObserver ref={ref}></BlockObserver>}
+    </ListStyled>
   )
 }
 
-export default Artem
+export default DynamicPagination
