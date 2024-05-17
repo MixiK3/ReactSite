@@ -1,11 +1,11 @@
 import React from "react";
-import Vlad from "../../pages/Vlad";
+import Vlad from "../../pages/FormAuf/FormAuf";
 import { ARTEM_ROUTE, VLAD_ROUTE, OLEG_ROUTE, GENA_ROUTE, FORM_ROUTE } from "./config";
-import Artem from "../../pages/Artem";
+import Artem from "../../pages/ListUniversities/ListUniversities";
 import { useRoutes } from "react-router-dom";
-import Gena from "../../pages/Gena";
-import Oleg from "../../pages/Oleg";
-import Form from "../../pages/Form";
+import Gena from "../../pages/TimeNow/TimeNow";
+import Oleg from "../../pages/Calculator/Calculator";
+import Form from "../../pages/FormPDF/FormPDF";
 
 const MainRouter = () => {
   return useRoutes([

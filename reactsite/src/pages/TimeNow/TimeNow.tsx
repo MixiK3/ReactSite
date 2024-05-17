@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export const Gena = () => {
+export const TimeNow = () => {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
@@ -18,4 +18,4 @@ export const Gena = () => {
   );
 };
 
-export default Gena;
+export default TimeNow;

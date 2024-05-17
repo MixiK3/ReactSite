@@ -17,7 +17,7 @@ const BlockObserver = styled.div`
   background-color: black;
 `;
 
-const DynamicPagination: FC = () => {
+const ListUniversities: FC = () => {
   const [universities, setUniversities] = useState<Array<IUniversity>>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -61,4 +61,4 @@ const DynamicPagination: FC = () => {
   );
 };
 
-export default DynamicPagination;
+export default ListUniversities;

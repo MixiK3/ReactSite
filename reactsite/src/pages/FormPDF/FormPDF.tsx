@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import jsPDF from "jspdf";
 
-const Form = () => {
+const FormPDF = () => {
   const [text, setText] = useState("");
   const [image, setImage] = useState<string | null>(null);
 
@@ -44,4 +44,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default FormPDF;

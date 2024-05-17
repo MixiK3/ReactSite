@@ -20,14 +20,14 @@ const Navbar = ({
   return (
     <nav className="navbar">
       {/* Ссылки для навигации */}
-      <Link to={ARTEM_ROUTE}>ARTEM_TABLE</Link>
+      <Link to={ARTEM_ROUTE}>ListUniversities</Link>
 
-      <Link to={VLAD_ROUTE}>VLAD_FORM</Link>
+      <Link to={VLAD_ROUTE}>FormAuf</Link>
 
-      <Link to={OLEG_ROUTE}>OLEG_CALCULATE</Link>
+      <Link to={OLEG_ROUTE}>Calculator</Link>
 
-      <Link to={GENA_ROUTE}>GENA_TIME</Link>
-      <Link to={FORM_ROUTE}>FORM_PDF</Link>
+      <Link to={GENA_ROUTE}>TimeNow</Link>
+      <Link to={FORM_ROUTE}>FormPDF</Link>
 
       {/* Кнопка для авторизации */}
       <button onClick={handleAuth}>{isAuth ? "Выйти" : "Войти"}</button>

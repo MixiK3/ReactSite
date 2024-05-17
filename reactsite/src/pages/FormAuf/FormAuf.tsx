@@ -7,7 +7,7 @@ interface IMyForm {
   email: string;
 }
 
-const Vlad = () => {
+const FormAuf = () => {
   const {
     register,
     handleSubmit,
@@ -21,7 +21,7 @@ const Vlad = () => {
       email: "",
     },
   });
-  const [submittedData, setSubmittedData] = useState<IMyForm | null>();
+  const [submittedData, setSubmittedData] = useState<IMyForm | null>(null);
   const [elementList, setElementList] = useState<IMyForm[]>([]);
 
   const saveElement: SubmitHandler<IMyForm> = (data) => {
@@ -110,4 +110,4 @@ const Vlad = () => {
   );
 };
 
-export default Vlad;
+export default FormAuf;

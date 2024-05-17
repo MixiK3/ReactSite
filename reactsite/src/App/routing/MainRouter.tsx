@@ -1,10 +1,10 @@
 import React from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
-import Vlad from "../../pages/Vlad";
-import Artem from "../../pages/Artem";
-import Oleg from "../../pages/Oleg";
-import Gena from "../../pages/Gena";
-import Form from "../../pages/Form";
+import Vlad from "../../pages/FormAuf/FormAuf";
+import Artem from "../../pages/ListUniversities/ListUniversities";
+import Oleg from "../../pages/Calculator/Calculator";
+import Gena from "../../pages/TimeNow/TimeNow";
+import Form from "../../pages/FormPDF/FormPDF";
 import { ARTEM_ROUTE, GENA_ROUTE, VLAD_ROUTE, FORM_ROUTE } from "./config";
 
 const MainRouter = ({ isAuth = false }) => {
