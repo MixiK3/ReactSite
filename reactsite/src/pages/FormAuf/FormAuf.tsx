@@ -1,36 +1,36 @@
-import React, { useState } from 'react'
-import { SubmitHandler, useForm } from 'react-hook-form'
+import React, { useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 
 interface IMyForm {
-  name: string
-  age: number
-  email: string
+  name: string;
+  age: number;
+  email: string;
 }
 
-const Vlad = () => {
+const FormAuf = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
   } = useForm<IMyForm>({
-    mode: 'onBlur',
+    mode: "onBlur",
     defaultValues: {
-      name: '',
+      name: "",
       age: undefined,
-      email: '',
+      email: "",
     },
-  })
-  const [submittedData, setSubmittedData] = useState<IMyForm | null>()
-  const [elementList, setElementList] = useState<IMyForm[]>([])
+  });
+  const [submittedData, setSubmittedData] = useState<IMyForm | null>(null);
+  const [elementList, setElementList] = useState<IMyForm[]>([]);
 
   const saveElement: SubmitHandler<IMyForm> = (data) => {
-    setSubmittedData(data)
-    setElementList((prevList) => [...prevList, data])
-    reset()
-  }
+    setSubmittedData(data);
+    setElementList((prevList) => [...prevList, data]);
+    reset();
+  };
 
-  const isFormValid = Object.keys(errors).length === 0
+  const isFormValid = Object.keys(errors).length === 0;
 
   return (
     <div>
@@ -38,11 +38,11 @@ const Vlad = () => {
         <label>
           Имя:
           <input
-            {...register('name', {
-              required: 'Поле обязательно для заполнения',
+            {...register("name", {
+              required: "Поле обязательно для заполнения",
               minLength: {
                 value: 5,
-                message: 'Нужно больше символов',
+                message: "Нужно больше символов",
               },
             })}
           />
@@ -51,15 +51,15 @@ const Vlad = () => {
         <label>
           Возраст:
           <input
-            {...register('age', {
-              required: 'Поле обязательно для заполнения',
+            {...register("age", {
+              required: "Поле обязательно для заполнения",
               min: {
                 value: 18,
-                message: 'Возраст должен быть больше 18',
+                message: "Возраст должен быть больше 18",
               },
               pattern: {
                 value: /^\d+$/,
-                message: 'Введите число',
+                message: "Введите число",
               },
             })}
           />
@@ -68,11 +68,11 @@ const Vlad = () => {
         <label>
           Email:
           <input
-            {...register('email', {
-              required: 'Поле обязательно для заполнения',
+            {...register("email", {
+              required: "Поле обязательно для заполнения",
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: 'Некорректный email',
+                message: "Некорректный email",
               },
             })}
           />
@@ -107,7 +107,7 @@ const Vlad = () => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Vlad
+export default FormAuf;

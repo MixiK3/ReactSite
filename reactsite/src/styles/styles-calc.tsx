@@ -1,12 +1,6 @@
-import styled from 'styled-components'
-import { Button } from 'antd'
-import {
-  primaryColor,
-  secondaryColor,
-  textColor,
-  inputBorderColor,
-  inputBackgroundColor,
-} from './global-styles'
+import styled from "styled-components";
+import { Button } from "antd";
+import { primaryColor, secondaryColor, textColor, inputBorderColor, inputBackgroundColor } from "./global-styles";
 
 export const CustomStyledButton = styled(Button)`
   background-color: ${primaryColor};
@@ -19,7 +13,7 @@ export const CustomStyledButton = styled(Button)`
   &:hover {
     background-color: ${secondaryColor};
   }
-`
+`;
 
 export const CustomStyledInput = styled.input`
   padding: 15px;
@@ -28,7 +22,7 @@ export const CustomStyledInput = styled.input`
   border-radius: 5px;
   margin-bottom: 10px;
   text-align: right;
-`
+`;
 
 export const CustomStyledDiv = styled.div`
   background: linear-gradient(to bottom, #333333, #555555);
@@ -36,13 +30,13 @@ export const CustomStyledDiv = styled.div`
   margin: 0 auto;
   text-align: center;
   border-radius: 10px;
-`
+`;
 
 export const CustomStyledKeypad = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 5px;
-`
+`;
 
 export const CustomStyledKeypadButton = styled.button`
   padding: 15px;
@@ -54,4 +48,4 @@ export const CustomStyledKeypadButton = styled.button`
   &:hover {
     background-color: ${inputBackgroundColor};
   }
-`
+`;
