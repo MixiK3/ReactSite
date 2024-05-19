@@ -6,6 +6,7 @@ import {
   OLEG_ROUTE,
   VLAD_ROUTE,
   GENA_ROUTE,
+  FORM_ROUTE,
 } from '../../App/routing/config'
 
 export interface StyledProps {
@@ -32,6 +33,7 @@ const Navbar = ({
       <Link to={OLEG_ROUTE}>OLEG_CALCULATE</Link>
 
       <Link to={GENA_ROUTE}>GENA_TIME</Link>
+      <Link to={FORM_ROUTE}>FORM_PDF</Link>
 
       {/* Кнопка для авторизации */}
       <button onClick={handleAuth}>{isAuth ? 'Выйти' : 'Войти'}</button>
