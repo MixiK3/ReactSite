@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 
 export const Gena = () => {
-  const [time, setTime] = useState(new Date())
+  const [time, setTime] = useState(new Date());
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTime(new Date())
-    }, 1000)
+      setTime(new Date());
+    }, 1000);
 
-    return () => clearInterval(interval)
-  }, [])
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div>
       <h1>Сейчас {time.toLocaleTimeString()}</h1>
     </div>
-  )
-}
+  );
+};
 
-export default Gena
+export default Gena;

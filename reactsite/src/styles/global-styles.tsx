@@ -1,10 +1,10 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
-export const primaryColor = '#ff0000'
-export const secondaryColor = '#cc0000'
-export const textColor = '#ffffff'
-export const inputBorderColor = '#ccc'
-export const inputBackgroundColor = '#f8f8f8'
+export const primaryColor = "#ff0000";
+export const secondaryColor = "#cc0000";
+export const textColor = "#ffffff";
+export const inputBorderColor = "#ccc";
+export const inputBackgroundColor = "#f8f8f8";
 
 export const GlobalStyles = createGlobalStyle`
   body {
@@ -109,6 +109,6 @@ export const GlobalStyles = createGlobalStyle`
     padding: 10px;
     font-size: 16px;
   }
-`
+`;
 
-export default GlobalStyles
+export default GlobalStyles;
