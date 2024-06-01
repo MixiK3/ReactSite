@@ -1,15 +1,11 @@
-import React from 'react'
-import Artem from './pages/Artem'
-import Vlad from './pages/Vlad'
-import {
-  ARTEM_ROUTE,
-  GENA_ROUTE,
-  OLEG_ROUTE,
-  VLAD_ROUTE,
-} from './App/routing/config'
-import { useRoutes } from 'react-router-dom'
-import Oleg from './pages/Oleg'
-import Gena from './pages/Gena'
+import React from "react";
+import Artem from "./pages/ListUniversities/ListUniversities";
+import Vlad from "./pages/FormAuf/FormAuf";
+import { ARTEM_ROUTE, GENA_ROUTE, OLEG_ROUTE, VLAD_ROUTE, FORM_ROUTE } from "./App/routing/config";
+import { useRoutes } from "react-router-dom";
+import Oleg from "./pages/Calculator/Calculator";
+import Gena from "./pages/TimeNow/TimeNow";
+import Form from "./pages/FormPDF/FormPDF";
 
 const MainRouter = () => {
   return useRoutes([
@@ -20,7 +16,8 @@ const MainRouter = () => {
     },
     { path: OLEG_ROUTE, element: <Oleg /> },
     { path: GENA_ROUTE, element: <Gena /> },
-  ])
-}
+    { path: FORM_ROUTE, element: <Form /> },
+  ]);
+};
 
-export default MainRouter
+export default MainRouter;
